@@ -28,16 +28,20 @@ module.exports = {
             {
 //                test: /\.png|\.jpeg/,
                 test: /\.(png|jpeg)/,
+                type: 'asset/resource',//v5
+                generator: {//v5
+                    filename: 'images/[name][ext]',
+                },
                 use: [
-                    {
-//                        loader: 'url-loader',
-                        loader: 'file-loader',
-                        options: {
-                            esModule : false,
-//                            name: 'images/icon.png',
-                            name: 'images/[name].[ext]',
-                        }
-                    },
+//                     {
+// //                        loader: 'url-loader',
+//                         loader: 'file-loader',
+//                         options: {
+//                             esModule : false,
+// //                            name: 'images/icon.png',
+//                             name: 'images/[name].[ext]',
+//                         }
+//                     },
                 ],
             },
         ],
