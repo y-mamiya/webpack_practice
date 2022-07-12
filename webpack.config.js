@@ -44,6 +44,20 @@ module.exports = {
 //                     },
                 ],
             },
+            {
+                test: /\.pug/,
+                use:[
+                    {
+                        loader: 'html-loader',//2こめの処理
+                    },
+                    {
+                        loader:'pug-html-loader',//1こめの処理
+                        options: {
+                            pretty: true,//圧縮しなくなる
+                        }
+                    }
+                ]
+            }
         ],
     },
     plugins: [
@@ -51,7 +65,12 @@ module.exports = {
             filename: './styleseets/main.css',
         }),
         new HtmlWebpackPlugin({
-            template: './src/templates/index.html',//読み込み先
+            template: './src/templates/index.pug',//読み込み先
+            filename: 'index.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/templates/access.pug',//読み込み先
+            filename: 'access.html',
         }),
         new CleanWebpackPlugin(),
     ],
