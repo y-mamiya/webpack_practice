@@ -14,7 +14,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css/,
+                test: /\.(css|sass|scss)/,
                 use: [
                     {
 //                        loader: 'style-loader',
@@ -23,6 +23,9 @@ module.exports = {
                     {
                         loader: 'css-loader',
                     },
+                    {
+                        loader: 'sass-loader',
+                    }
                 ],
             },
             {
@@ -71,6 +74,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/templates/access.pug',//読み込み先
             filename: 'access.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/templates/members/taro.pug',//読み込み先
+            filename: 'members/taro.html',
         }),
         new CleanWebpackPlugin(),
     ],
